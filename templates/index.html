@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Data</title>
+</head>
+<body>
+    <h1>Add User and Path Data</h1>
+
+    <!-- User Data Form -->
+    <h2>User Data</h2>
+    <form id="userForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br>
+
+        <label for="path_number">Path Number:</label>
+        <input type="text" id="path_number_user" name="path_number" required><br>
+
+        <label for="round">Round:</label>
+        <input type="text" id="round_user" name="round" required><br>
+
+        <label for="current_round">Current Round:</label>
+        <input type="text" id="current_round" name="current_round" required><br>
+
+        <input type="submit" value="Add User Data">
+    </form>
+
+    <!-- Path Data Form -->
+    <h2>Path Data</h2>
+    <form id="pathForm">
+        <label for="path_number">Path Number:</label>
+        <input type="text" id="path_number" name="path_number" required><br>
+
+        <label for="question">Question:</label>
+        <input type="text" id="question" name="question"><br>
+
+        <label for="solution">Solution:</label>
+        <input type="text" id="solution" name="solution" required><br>
+
+        <label for="round">Round:</label>
+        <input type="text" id="round" name="round" required><br>
+
+        <label for="venue">Venue:</label>
+        <input type="text" id="venue" name="venue" required><br>
+
+        <label for="image_url">Image URL:</label>
+        <input type="text" id="image_url" name="image_url"><br>
+
+        <input type="submit" value="Add Path Data">
+    </form>
+
+    <script>
+        document.getElementById('userForm').onsubmit = async function(event) {
+            event.preventDefault(); // Prevent the form from submitting normally
+
+            const formData = new FormData(this);
+            const response = await fetch('http://127.0.0.1:5000/add_user', {
+                method: 'POST',
+                body: formData
+            });
+
+            const result = await response.json();
+            alert(result.message); // Show the response message
+        };
+
+        document.getElementById('pathForm').onsubmit = async function(event) {
+            event.preventDefault(); // Prevent the form from submitting normally
+
+            const formData = new FormData(this);
+            const response = await fetch('http://127.0.0.1:5000/add_path_data', {
+                method: 'POST',
+                body: formData
+            });
+
+            const result = await response.json();
+            alert(result.message); // Show the response message
+        };
+    </script>
+</body>
+</html>
