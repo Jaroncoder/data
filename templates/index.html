@@ -54,30 +54,52 @@
     </form>
 
     <script>
+        // User Form submission
         document.getElementById('userForm').onsubmit = async function(event) {
             event.preventDefault(); // Prevent the form from submitting normally
 
             const formData = new FormData(this);
-            const response = await fetch('https://dataregisback.vercel.app/add_user', {
-                method: 'POST',
-                body: formData
-            });
 
-            const result = await response.json();
-            alert(result.message); // Show the response message
+            try {
+                const response = await fetch('https://dataregisback.vercel.app/add_user', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    alert("User added successfully!"); // Success popup message
+                } else {
+                    alert("Error: " + result.message); // Error handling
+                }
+            } catch (error) {
+                alert("Something went wrong! Please try again.");
+            }
         };
 
+        // Path Form submission
         document.getElementById('pathForm').onsubmit = async function(event) {
             event.preventDefault(); // Prevent the form from submitting normally
 
             const formData = new FormData(this);
-            const response = await fetch('https://dataregisback.vercel.app/add_path_data', {
-                method: 'POST',
-                body: formData
-            });
 
-            const result = await response.json();
-            alert(result.message); // Show the response message
+            try {
+                const response = await fetch('https://dataregisback.vercel.app/add_path_data', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    alert("Path data added successfully!"); // Success popup message
+                } else {
+                    alert("Error: " + result.message); // Error handling
+                }
+            } catch (error) {
+                alert("Something went wrong! Please try again.");
+            }
         };
     </script>
 </body>
