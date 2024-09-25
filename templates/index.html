@@ -50,6 +50,9 @@
         <label for="image_url">Image URL:</label>
         <input type="text" id="image_url" name="image_url"><br>
 
+        <label for="hint">Hint:</label>
+        <input type="text" id="hint" name="hint"><br> <!-- New field for hint -->
+
         <input type="submit" value="Add Path Data">
     </form>
 
@@ -69,12 +72,12 @@
                 const result = await response.json();
 
                 if (response.ok) {
-                    alert("User created successfully!"); // Updated success message
+                    alert("User added successfully!"); // Success popup message
                 } else {
-                    alert("Error: " + result.message); // Error handling with specific message
+                    alert("Error: " + result.message); // Error handling
                 }
             } catch (error) {
-                alert("user created successfully"); // General error message
+                alert("Something went wrong! Please try again.");
             }
         };
 
@@ -93,12 +96,12 @@
                 const result = await response.json();
 
                 if (response.ok) {
-                    alert("Path data added to collection successfully!"); // Updated success message
+                    alert("Path data added successfully!"); // Success popup message
                 } else {
-                    alert("Error: " + result.message); // Error handling with specific message
+                    alert("Error: " + result.message); // Error handling
                 }
             } catch (error) {
-                alert("There was an issue processing your request. Please try again."); // General error message
+                alert("Something went wrong! Please try again.");
             }
         };
     </script>
