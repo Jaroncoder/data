@@ -69,12 +69,12 @@
                 const result = await response.json();
 
                 if (response.ok) {
-                    alert("User added successfully!"); // Success popup message
+                    alert("User created successfully!"); // Updated success message
                 } else {
-                    alert("Error: " + result.message); // Error handling
+                    alert("Error: " + result.message); // Error handling with specific message
                 }
             } catch (error) {
-                alert("Something went wrong! Please try again.");
+                alert("There was an issue processing your request. Please try again."); // General error message
             }
         };
 
@@ -93,12 +93,12 @@
                 const result = await response.json();
 
                 if (response.ok) {
-                    alert("Path data added successfully!"); // Success popup message
+                    alert("Path data added to collection successfully!"); // Updated success message
                 } else {
-                    alert("Error: " + result.message); // Error handling
+                    alert("Error: " + result.message); // Error handling with specific message
                 }
             } catch (error) {
-                alert("Something went wrong! Please try again.");
+                alert("There was an issue processing your request. Please try again."); // General error message
             }
         };
     </script>
